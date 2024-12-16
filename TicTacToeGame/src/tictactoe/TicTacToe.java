@@ -35,7 +35,6 @@ public class TicTacToe {
         frame.setLayout(new BorderLayout());
 
         resetButton.setSize(80,40);
-        //resetButton.setLocation(500,10);
         frame.add(resetButton,BorderLayout.AFTER_LAST_LINE);
         resetButton.addActionListener(e ->
             resetBoard()
