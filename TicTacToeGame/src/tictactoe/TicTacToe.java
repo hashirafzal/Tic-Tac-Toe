@@ -37,9 +37,9 @@ public class TicTacToe {
         resetButton.setSize(60,40);
         resetButton.setLocation(500,0);
         frame.add(resetButton);
-        resetButton.addActionListener(e -> {
-            resetBoard(); // Call a method to reset the game board
-        });
+        resetButton.addActionListener(e ->
+            resetBoard()
+        );
         textLabel.setBackground(Color.DARK_GRAY);
         textLabel.setForeground(Color.white);
         textLabel.setFont(new Font("Arial",Font.BOLD,50));
@@ -164,12 +164,11 @@ public class TicTacToe {
     }
     void resetBoard()
     {
-        for (int i = 0; i < board.length; i++) {
+        for (int i = 0; i < board.length; i++)
             for (int j = 0; j < board[i].length; j++) {
                 board[i][j].setText(""); // Clear the text
                 board[i][j].setEnabled(true); // Enable the button if disabled
             }
-        }
         gameOver = false;
         currentPlayer = playerX; // Reset to the starting player
         turns =0;
