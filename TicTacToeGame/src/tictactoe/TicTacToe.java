@@ -34,12 +34,14 @@ public class TicTacToe {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
-        resetButton.setSize(60,40);
-        resetButton.setLocation(500,0);
-        frame.add(resetButton);
+        resetButton.setSize(80,40);
+        //resetButton.setLocation(500,10);
+        frame.add(resetButton,BorderLayout.AFTER_LAST_LINE);
         resetButton.addActionListener(e ->
             resetBoard()
         );
+        resetButton.setFocusable(false); // Ensure it doesn't lose visibility during focus
+        resetButton.setOpaque(true);
         textLabel.setBackground(Color.DARK_GRAY);
         textLabel.setForeground(Color.white);
         textLabel.setFont(new Font("Arial",Font.BOLD,50));
@@ -168,9 +170,11 @@ public class TicTacToe {
             for (int j = 0; j < board[i].length; j++) {
                 board[i][j].setText(""); // Clear the text
                 board[i][j].setEnabled(true); // Enable the button if disabled
+                board[i][j].setForeground(Color.black);
             }
         gameOver = false;
         currentPlayer = playerX; // Reset to the starting player
         turns =0;
+        textLabel.setText(currentPlayer + "'s Turn");
     }
 }
